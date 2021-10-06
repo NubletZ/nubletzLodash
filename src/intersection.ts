@@ -1,16 +1,16 @@
-export function intersection() {
+export function intersection(...args: any[]) {
     const interList = []
-    var n = arguments.length;
-    if(n <= 1) return arguments;
+    var n = args.length;
+    if(n <= 1) return args;
     //console.log(` array = ${arguments[1]}`)
-    for(let i = 0; i < arguments[0].length; i++){
+    for(let i = 0; i < args[0].length; i++){
         //console.log(`start to check ${i}`)
-        if(checkIntersection(arguments, n-1, arguments[0][i])) interList.push(arguments[0][i])
+        if(checkIntersection(args, n-1, args[0][i])) interList.push(args[0][i])
     }
     return interList
 }
 
-function checkIntersection(array, x, value){
+function checkIntersection(array:Array<any>, x:number, value:any): boolean{
     for(let j=0; j < array[x].length; j++){
         if(x==1){
             if(array[1][j]==value){
